@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,14 @@ body {
     padding: 100px;
 }
 
+main {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -22,6 +31,7 @@ header h1 {
     color: white;
     font-size: 48px;
 }
+
 .board {
     width: 450px;
     display: grid;
@@ -33,7 +43,6 @@ header h1 {
     height: 150px;
     border: 4px solid #006E90;
 }
-
 
 #a1,
 #a2,
@@ -57,4 +66,11 @@ header h1 {
 #c2,
 #c3 {
     border-bottom: none;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
 }
