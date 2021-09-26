@@ -10,21 +10,11 @@
 body {
     height: 100vh;
     background: #41BBD9;
-    padding: 100px;
-}
-
-main {
+    padding: 80px;
     display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-}
-
-header {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
 }
 
 header h1 {
@@ -32,16 +22,85 @@ header h1 {
     font-size: 48px;
 }
 
+main {
+    width: 420px;
+    height: 420px;
+    max-width: 80vw;
+    max-height: 80vw;
+}
+
 .board {
-    width: 450px;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
 .board .square {
-    width: 150px;
-    height: 150px;
     border: 4px solid #006E90;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.board .square:hover {
+    background: #6bcae2;
+}
+
+footer {
+    width: 100%;
+    position: relative;
+    gap: 32px;
+}
+
+footer .difficulty,
+footer .player-indicator {
+    width: 140px;
+    height: 48px;
+    padding: 0 32px;
+    background: #63CEE8;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FEFBFB;
+    text-align: center;
+}
+
+footer .difficulty {
+    text-align: left;
+    padding: 0 12px;
+}
+
+footer .ranking {
+    position: absolute;
+    right: 0;
+}
+
+footer .ranking a::before {
+    content: 'Ranking';
+    font-weight: 600;
+    font-size: 18px;
+    padding-right: 8px;
+}
+
+footer .ranking a {
+    text-decoration: none;
+    color: #FEFBFB;
+}
+
+footer .ranking a img {
+    height: 24px;
+}
+
+main,
+footer,
+select,
+.square,
+.player-indicator,
+.ranking a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #a1,
@@ -68,9 +127,26 @@ header h1 {
     border-bottom: none;
 }
 
-footer {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
+@media (max-width: 768px) {
+    body {
+        padding: 36px;
+    }
+
+    footer .ranking a::before {
+        content: '';
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 574px) {
+    footer {
+        gap: 16px;
+    }
+
+    footer .ranking a {
+        display: none;
+    }
 }
