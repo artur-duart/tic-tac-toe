@@ -64,6 +64,7 @@ footer .player-indicator {
     font-size: 16px;
     color: #FEFBFB;
     text-align: center;
+    outline: none;
 }
 
 footer .difficulty {
