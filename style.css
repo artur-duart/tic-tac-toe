@@ -40,6 +40,14 @@ main {
     border: 4px solid #006E90;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: #FFF;
+    font-size: 78px;
+    font-weight: bold;
+    line-height: 0;
+}
+
+.board .square.X {
+    color: #006E90;
 }
 
 .board .square:hover {
@@ -126,6 +134,45 @@ select,
 #c2,
 #c3 {
     border-bottom: none;
+}
+
+.win-modal {
+    width: 380px;
+    height: 388px;
+    background: #FEFBFB;
+    border-radius: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.win-modal h2 {
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: #333333;
+}
+
+.win-modal p {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #737380;
+}
+
+.win-modal button {
+    padding: 13px 116px;
+    background: #DBDCDD;
+    border-radius: 8px;
+    margin: 0px 8px;
+    outline: none;
+    border: none;
+}
+
+.win-modal .btn-play {
+    background: #63CEE8;
+    color: #FEFEFE;
 }
 
 @media (max-width: 768px) {
