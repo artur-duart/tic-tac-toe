@@ -6,55 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
+    <script src="GameController.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>Tic Tac Toe</h1>
-    </header>
-    <main>
-        <div class="board">
-            <!-- <div id="a1" class="square"></div>
-            <div id="a2" class="square"></div>
-            <div id="a3" class="square"></div>
+    <div class="game-container">
+        <header>
+            <h1>Tic Tac Toe</h1>
+        </header>
+        <main>
+            <div class="board"></div>
+        </main>
+        <footer>
+            <select class="difficulty">
+                <option>Fácil</option>
+                <option>Medio</option>
+                <option>Dificil</option>
+                <option>Jogador X Jogador</option>
+            </select>
+            <div class="player-indicator">
+                <p>Jogador 1</p>
+            </div>
+            <div class="ranking">
+                <a href="#">
+                    <img src="./public/images/trophy.svg" alt="Representação de troféu">
+                </a>
+            </div>
+        </footer>
+    </div>    
 
-            <div id="b1" class="square"></div>
-            <div id="b2" class="square"></div>
-            <div id="b3" class="square"></div>
+    <section id="win-modal">
+        <div class="modal">
+            <img src="/public/images/win-trophy.svg" alt="">
+            <h2></h2>
+            <p>Vocês desejam jogar novamente?</p>
 
-            <div id="c1" class="square"></div>
-            <div id="c2" class="square"></div>
-            <div id="c3" class="square"></div> -->
+            <div class="button-group">
+                <button class="btn-cancel">Não</button>
+                <button class="btn-play">Sim, jogar</button>
+            </div>
         </div>
-    </main>
-    <footer>
-        <select class="difficulty">
-            <option>Fácil</option>
-            <option>Medio</option>
-            <option>Dificil</option>
-            <option>Jogador X Jogador</option>
-        </select>
-        <div class="player-indicator">
-            <p>Jogador 1</p>
-        </div>
-        <div class="ranking">
-            <a href="#">
-                <img src="./public/images/trophy.svg" alt="Representação de troféu">
-            </a>
-        </div>
-    </footer>
-
-    <section class="win-modal">
-        <img src="/public/images/win-trophy.svg" alt="">
-        <h2>O Jogador Artur Duarte venceu!</h2>
-        <p>Vocês desejam jogar novamente?</p>
-
-        <div class="button-group">
-            <button class="btn-cancel">Não</button>
-            <button class="btn-play">Sim, jogar</button>
-        </div>
+        <div class="bg"></div>
     </section>
+
+    <section id="ranking-modal">
+        <div class="modal">
+            <h2>Ranking</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Jogador</th>
+                    <th>Vitórias</th>
+                </tr>
+                <tr>
+                    <td>1°</td>
+                    <td>Erick</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>2°</td>
+                    <td>Artur</td>
+                    <td>8</td>
+                </tr>
+            </table>
+        </div>
+        <div class="bg"></div>
+    </section>
+
+
 
 </body>
 
