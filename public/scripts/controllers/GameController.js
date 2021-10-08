@@ -25,7 +25,7 @@ const start = () => {
     sortPlayer().then(player => {
         currentPlayer = player;
         changeIndicator()
-        if (player == 'Computador') turn.computer.play();
+        if (player == 'Computador') computerTurn.play();
     });
 }
 
@@ -71,7 +71,7 @@ const togglePlayer = async () => {
         else currentPlayer = currentPlayer == 'Sua vez' ? 'Computador' : 'Sua vez';
 
         changeIndicator();
-        if (currentPlayer == 'Computador') turn.computer.play();
+        if (currentPlayer == 'Computador') computerTurn.play();
     }
 }
 
