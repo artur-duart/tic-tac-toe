@@ -66,7 +66,14 @@ main {
 
 footer {
     width: 100%;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+footer .indicators {
+    display: flex;
     gap: 32px;
 }
 
@@ -90,33 +97,37 @@ footer .difficulty {
     padding: 0 12px;
 }
 
-footer .ranking {
-    position: absolute;
-    right: 0;
+footer a {
+    text-decoration: none;
+    color: #FEFBFB;
+    gap: 8px;
 }
 
-footer .ranking a::before {
+footer a:hover img {
+    transform: scale(1.1) rotate(-10deg);
+}
+
+footer .reset a:hover img {
+    transform: scale(1) rotate(-180deg)
+}
+
+footer a p {
     content: 'Ranking';
     font-weight: 600;
     font-size: 18px;
-    padding-right: 8px;
 }
 
-footer .ranking a {
-    text-decoration: none;
-    color: #FEFBFB;
-}
-
-footer .ranking a img {
+footer a img {
     height: 24px;
+    transition: all 0.3s ease-in-out;
 }
 
 main,
-footer,
 select,
 .square,
 .player-indicator,
-.ranking a {
+.ranking a,
+.reset a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -300,25 +311,22 @@ select,
 }
 
 @media (max-width: 768px) {
-    body {
-        padding: 36px;
+
+    footer .indicators {
+        gap: 24px;
     }
 
-    footer .ranking a::before {
-        content: '';
-    }
-
-    header h1 {
-        font-size: 32px;
+    footer a p {
+        display: none;
     }
 }
 
 @media (max-width: 574px) {
-    footer {
+    footer .indicators {
         gap: 16px;
     }
 
-    footer .ranking a {
+    footer a img {
         display: none;
     }
 }
