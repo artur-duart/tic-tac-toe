@@ -13,7 +13,7 @@ const render = () => {
         const squareDiv = document.createElement('div');
         squareDiv.id = square;
         squareDiv.className = 'square';
-        squareDiv.addEventListener('click', turn.player.addMove);
+        squareDiv.addEventListener('click', addPlayerMove);
         boardDiv.appendChild(squareDiv);
     }
 }
@@ -25,12 +25,12 @@ const start = () => {
     sortPlayer().then(player => {
         currentPlayer = player;
         changeIndicator()
-        if (player == 'Computador') computerTurn.play();
+        if (player == 'Computador') computerPlay();
     });
 }
 
 const checkWinFor = (player) => {
-    let pos = [
+    let winPossibilities = [
         'a1,a2,a3',
         'b1,b2,b3',
         'c1,c2,c3',
@@ -43,22 +43,31 @@ const checkWinFor = (player) => {
         'a3,b2,c1'
     ];
 
-    for (let w in pos) {
-        let pArray = pos[w].split(',');
+    for (let pos in winPossibilities) {
+        let pArray = winPossibilities[pos].split(',');
         let hasWon = pArray.every(option => gameBoard[option] === player);
-        if (hasWon) {
-            return true;
-        }
+        if (hasWon) return true;
+        
     }
-
     return false;
+}
+
+const gameBoardIsFull = (gameBoard) => {
+    let isFull = true;
+    Object.values(gameBoard).forEach(value => {
+        if(value == '') isFull = false;
+    });
+    return isFull;
 }
 
 const checkGame = async () => {
     if (checkWinFor('X') || checkWinFor('O')) {
         let winner = currentPlayer == 'Sua vez' ? 'Você' : 'O ' + currentPlayer;
-        // console.log(`${winner} venceu!`);
         document.getElementById('win-modal').querySelector('h2').textContent = `${winner} venceu!`;
+        document.getElementById('win-modal').style.display = 'flex';
+        isPlaying = false;
+    } else if(gameBoardIsFull(gameBoard)) {
+        document.getElementById('win-modal').querySelector('h2').textContent = `Empate!`;
         document.getElementById('win-modal').style.display = 'flex';
         isPlaying = false;
     }
@@ -71,7 +80,7 @@ const togglePlayer = async () => {
         else currentPlayer = currentPlayer == 'Sua vez' ? 'Computador' : 'Sua vez';
 
         changeIndicator();
-        if (currentPlayer == 'Computador') computerTurn.play();
+        if (currentPlayer == 'Computador') computerPlay();
     }
 }
 
