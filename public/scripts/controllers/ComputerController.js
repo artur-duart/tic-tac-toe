@@ -50,7 +50,7 @@ const moveMedium = () => {
     for (let pos in winPossibilities) {
         let pArray = winPossibilities[pos].split(',');
         let score = pArray.filter(option => gameBoard[option] !== 'O');
-        if(score.length == 1) {
+        if(!score.filter(option => gameBoard[option] == 'X').length >= 1 && score.length == 1) {
             bestMove = score[0];
             break;
         }
