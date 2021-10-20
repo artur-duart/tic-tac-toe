@@ -76,7 +76,35 @@ const toggleWinModal = message => {
     winModal.querySelector('h2').textContent = message;
     winModal.style.display = 'flex';
     animateCSS('.modal', 'fadeInDown')
-} 
+}
+
+const toggleRankingModal = () => {
+    let rankingModal = document.getElementById('ranking-modal');
+    rankingModal.style.display = 'flex';
+    animateCSS('.modal', 'fadeInDown')
+}
+
+const toggleLoadListeners = () => {
+    const resetButton = document.querySelector('.reset');
+    const rankingButton = document.querySelector('.ranking');
+    const modals = document.querySelectorAll('.modal-container');
+
+    resetButton.addEventListener('click', start);
+    rankingButton.addEventListener('click', toggleRankingModal);
+    modals.forEach(modal => {
+        const closeModal = () => modal.style.display = 'none';
+        modal.querySelector('.bg').addEventListener('click', closeModal);
+      
+        if(modal.id == "win-modal") {
+          modal.querySelectorAll('button').forEach(button =>
+            button.addEventListener('click', (e) => {
+              if(e.target.className == 'btn-play') start();
+              closeModal();
+            })
+          );
+        }
+      });
+}
 
 const togglePlayer = async () => {
     await checkGame();
