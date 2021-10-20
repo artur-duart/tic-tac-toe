@@ -1,0 +1,17 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.player1,
+.player2 {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}

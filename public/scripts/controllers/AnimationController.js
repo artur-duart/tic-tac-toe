@@ -3,4 +3,4 @@ const animateCSS = (element, animation) => {
     const node = document.querySelector(element);
 
     node.classList.add(`${prefix}animated`, `${prefix}${animation}`);
-  };
+};
