@@ -63,15 +63,20 @@ const gameBoardIsFull = (gameBoard) => {
 const checkGame = async () => {
     if (checkWinFor('X') || checkWinFor('O')) {
         let winner = currentPlayer == 'Sua vez' ? 'Você' : 'O ' + currentPlayer;
-        document.getElementById('win-modal').querySelector('h2').textContent = `${winner} venceu!`;
-        document.getElementById('win-modal').style.display = 'flex';
+        toggleWinModal(`${winner} venceu!`);
         isPlaying = false;
     } else if(gameBoardIsFull(gameBoard)) {
-        document.getElementById('win-modal').querySelector('h2').textContent = `Empate!`;
-        document.getElementById('win-modal').style.display = 'flex';
+        toggleWinModal('Empate!');
         isPlaying = false;
     }
 }
+
+const toggleWinModal = message => {
+    let winModal = document.getElementById('win-modal');
+    winModal.querySelector('h2').textContent = message;
+    winModal.style.display = 'flex';
+    animateCSS('.modal', 'fadeInDown')
+} 
 
 const togglePlayer = async () => {
     await checkGame();

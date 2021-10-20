@@ -201,11 +201,16 @@ select,
     border: none;
     flex: 1;
     cursor: pointer;
+    transition: filter 0.3s ease-in-out;
 }
 
 #win-modal .btn-play {
     background: #63CEE8;
     color: #FEFEFE;
+}
+
+#win-modal button:hover {
+    filter: brightness(95%);
 }
 
 #win-modal,

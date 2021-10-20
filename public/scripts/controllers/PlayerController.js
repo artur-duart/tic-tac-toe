@@ -4,7 +4,7 @@ const addPlayerMove = (square) => {
       gameBoard[item] = currentPlayer == 'Jogador 1' || currentPlayer == 'Computador' ? 'X' : 'O';
 
       const square = document.getElementById(item);
-      square.innerHTML = `<p>${gameBoard[item]}</p>`;
+      square.innerHTML = `<p class="animate__animated animate__rubberBand">${gameBoard[item]}</p>`;
       square.classList.add(gameBoard[item]);
 
       togglePlayer();

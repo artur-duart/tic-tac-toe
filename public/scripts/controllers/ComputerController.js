@@ -1,14 +1,16 @@
 const computerPlay = () => {
-    switch (gameMode) {
-    case 'Fácil':
-        moveRandom();
-        break;
-    case 'Médio':
-        moveMedium();
-        break;
-    default:
-        break;
-    }
+    setTimeout(() => {
+        switch (gameMode) {
+            case 'Fácil':
+                moveRandom();
+            break;
+            case 'Médio':
+                moveMedium();
+                break;
+            default:
+                break;
+        }
+    }, 1000);
 }
 
 const moveRandom = () => {
@@ -21,7 +23,7 @@ const moveRandom = () => {
     gameBoard[Object.keys(gameBoard)[availableMoves[move]]] = 'X';
 
     const square = document.getElementById(Object.keys(gameBoard)[availableMoves[move]]);
-    square.innerHTML = `<p>X</p>`;
+    square.innerHTML = `<p class="animate__animated animate__rubberBand">X</p>`;
     square.classList.add('X');
     
     togglePlayer();
@@ -59,7 +61,7 @@ const moveMedium = () => {
         gameBoard[bestMove] = 'X';
 
         const square = document.getElementById(bestMove);
-        square.innerHTML = `<p>X</p>`;
+        square.innerHTML = `<p class="animate__animated animate__rubberBand">X</p>`;
         square.classList.add('X');
         
         return togglePlayer();
