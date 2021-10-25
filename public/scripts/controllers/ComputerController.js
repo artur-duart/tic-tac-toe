@@ -14,10 +14,7 @@ const computerPlay = () => {
 };
 
 const moveRandom = () => {
-    let availableMoves = [];
-    Object.values(gameBoard).forEach((value, index) => {
-        value == '' && availableMoves.push(index);
-    });
+    let availableMoves = getAvailableMoves();
     let move = Math.floor(Math.random() * availableMoves.length);
 
     gameBoard[Object.keys(gameBoard)[availableMoves[move]]] = 'X';
@@ -32,10 +29,7 @@ const moveRandom = () => {
 };
 
 const moveMedium = () => {
-    let availableMoves = [];
-    Object.entries(gameBoard).forEach((entry, index) => {
-        entry[1] == '' && availableMoves.push(entry[0]);
-    });
+    let availableMoves = getAvailableMoves();
 
     let winPossibilities = [
         'a1,a2,a3',

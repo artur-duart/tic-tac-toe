@@ -88,7 +88,9 @@ const toggleLoadListeners = () => {
     const rankingButton = document.querySelector('.ranking');
     const modals = document.querySelectorAll('.modal-container');
 
-    resetButton.addEventListener('click', start);
+    resetButton.addEventListener('click', () => {
+        if(getAvailableMoves().length !== 9) start()
+    });
     rankingButton.addEventListener('click', toggleRankingModal);
     modals.forEach((modal) => {
         const closeModal = () => (modal.style.display = 'none');
@@ -132,3 +134,12 @@ const sortPlayer = async () => {
             : ['Computador', 'Sua vez'];
     return players[Math.floor(Math.random() * players.length)];
 };
+
+
+const getAvailableMoves = () => {
+    let availableMoves = [];
+    Object.values(gameBoard).forEach((value, index) => {
+        value == '' && availableMoves.push(index);
+    });
+    return availableMoves;
+}
