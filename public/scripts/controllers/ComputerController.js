@@ -34,19 +34,18 @@ const moveMedium = () => {
 };
 
 const moveHard = async () => {
-  let availableMoves = getAvailableMoves(gameBoard);
   let bestMove = checkCloseFor("O");
 
-  if(availableMoves.length > 7) {
+  if(gameBoard.b2 == '') {
     if(gameBoard.a1 === 'O' ||
        gameBoard.a3 === 'O' ||
        gameBoard.c3 === 'O' ||
        gameBoard.c1 === 'O') bestMove = 'b2';
   }
-  
+
   if(bestMove !== '') {
     gameBoard[bestMove] = 'X';
-    addMove(bestMove);
-  } else if(checkCloseFor("X") !== '') moveMedium();
-  else moveRandom();
+    return addMove(bestMove);
+  } else if(checkCloseFor("X") !== '') return moveMedium();
+  else return moveRandom();
 };
