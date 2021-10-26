@@ -29,29 +29,29 @@ const start = () => {
   });
 };
 
-const checkWinFor = player => {
+const checkWin = (board, player) => {
   for (let pos in winPossibilities) {
     let pArray = winPossibilities[pos].split(',');
-    let hasWon = pArray.every(option => gameBoard[option] === player);
+    let hasWon = pArray.every(option => board[option] === player);
     if (hasWon) return true;
   }
   return false;
 };
 
-const gameBoardIsFull = gameBoard => {
+const gameBoardIsFull = board => {
   let isFull = true;
-  Object.values(gameBoard).forEach(value => {
+  Object.values(board).forEach(value => {
     if (value == '') isFull = false;
   });
   return isFull;
 };
 
-const checkGame = async () => {
-  if (checkWinFor('X') || checkWinFor('O')) {
+const checkGame = async (board) => {
+  if (checkWin(board, 'X') || checkWin(board, 'O')) {
     let winner = currentPlayer == 'Sua vez' ? 'Você' : 'O ' + currentPlayer;
     toggleWinModal(`${winner} venceu!`);
     isPlaying = false;
-  } else if (gameBoardIsFull(gameBoard)) {
+  } else if (gameBoardIsFull(board)) {
     toggleWinModal('Empate!');
     isPlaying = false;
   }
@@ -76,7 +76,7 @@ const toggleLoadListeners = () => {
   const modals = document.querySelectorAll('.modal-container');
 
   resetButton.addEventListener('click', () => {
-    if (getAvailableMoves().length !== 9) start();
+    if (getAvailableMoves(gameBoard).length !== 9) start();
   });
   rankingButton.addEventListener('click', toggleRankingModal);
   modals.forEach(modal => {
@@ -95,7 +95,7 @@ const toggleLoadListeners = () => {
 };
 
 const togglePlayer = async () => {
-  await checkGame();
+  await checkGame(gameBoard);
   if (isPlaying == true) {
     if (gameMode == 'Jogador X Jogador') currentPlayer = currentPlayer == 'Jogador 1' ? 'Jogador 2' : 'Jogador 1';
     else currentPlayer = currentPlayer == 'Sua vez' ? 'Computador' : 'Sua vez';
@@ -112,10 +112,32 @@ const sortPlayer = async () => {
   return players[Math.floor(Math.random() * players.length)];
 };
 
-const getAvailableMoves = () => {
+const getAvailableMoves = (board) => {
   let availableMoves = [];
-  Object.values(gameBoard).forEach((value, index) => {
+  Object.values(board).forEach((value, index) => {
     value == '' && availableMoves.push(index);
   });
   return availableMoves;
 };
+
+const addMove = (move, player = "X") => {
+  const square = document.getElementById(move);
+  square.innerHTML = `<p class="animate__animated animate__rubberBand">${player}</p>`;
+  square.classList.add(player);
+
+  return togglePlayer();
+}
+
+const checkCloseFor = (player) => {
+  const adversary = player == 'X' ? 'O' : 'X';
+  var bestMove = '';
+  for (let pos in winPossibilities) {
+    let pArray = winPossibilities[pos].split(',');
+    let score = pArray.filter(option => gameBoard[option] !== adversary);
+    if (!score.filter(option => gameBoard[option] == player).length >= 1 && score.length == 1) {
+      bestMove = score[0];
+      break;
+    }
+  }
+  return bestMove;
+}
