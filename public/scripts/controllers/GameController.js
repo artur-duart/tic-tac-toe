@@ -61,13 +61,13 @@ const toggleWinModal = message => {
   let winModal = document.getElementById('win-modal');
   winModal.querySelector('h2').textContent = message;
   winModal.style.display = 'flex';
-  animateCSS('.modal', 'fadeInDown');
+  animateCSS('#win-modal .modal', 'fadeInDown');
 };
 
 const toggleRankingModal = () => {
   let rankingModal = document.getElementById('ranking-modal');
   rankingModal.style.display = 'flex';
-  animateCSS('.modal', 'fadeInDown');
+  animateCSS('#ranking-modal .modal', 'fadeInDown');
 };
 
 const toggleLoadListeners = () => {
