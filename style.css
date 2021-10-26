@@ -1,125 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-    height: 100vh;
-    background: #41BBD9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  height: 100vh;
+  background: #41bbd9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .game-container {
-    height: 100%;
-    width: 100%;
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
-    color: white;
-    font-size: 48px;
+  color: white;
+  font-size: 48px;
 }
 
 main {
-    width: 420px;
-    height: 420px;
-    max-width: 80vw;
-    max-height: 80vw;
+  width: 420px;
+  height: 420px;
+  max-width: 80vw;
+  max-height: 80vw;
 }
 
 .board {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .board .square {
-    border: 4px solid #006E90;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: #FFF;
-    font-size: 78px;
-    font-weight: bold;
-    line-height: 0;
+  border: 4px solid #006e90;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+  font-size: 78px;
+  font-weight: bold;
+  line-height: 0;
 }
 
 .board .square.X {
-    color: #006E90;
+  color: #006e90;
 }
 
 .board .square:hover {
-    background: #6bcae2;
+  background: #6bcae2;
 }
 
 footer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 footer .indicators {
-    display: flex;
-    gap: 32px;
+  display: flex;
+  gap: 32px;
 }
 
 footer .difficulty,
 footer .player-indicator {
-    width: 140px;
-    height: 48px;
-    padding: 0 32px;
-    background: #63CEE8;
-    border: none;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #FEFBFB;
-    text-align: center;
-    outline: none;
+  width: 140px;
+  height: 48px;
+  padding: 0 32px;
+  background: #63cee8;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fefbfb;
+  text-align: center;
+  outline: none;
 }
 
 footer .difficulty {
-    text-align: left;
-    padding: 0 12px;
+  text-align: left;
+  padding: 0 12px;
 }
 
 footer a {
-    text-decoration: none;
-    color: #FEFBFB;
-    gap: 8px;
+  text-decoration: none;
+  color: #fefbfb;
+  gap: 8px;
 }
 
 footer a:hover img {
-    transform: scale(1.1) rotate(-10deg);
+  transform: scale(1.1) rotate(-10deg);
 }
 
 footer .reset a:hover img {
-    transform: scale(1) rotate(-180deg)
+  transform: scale(1) rotate(-180deg);
 }
 
 footer a p {
-    content: 'Ranking';
-    font-weight: 600;
-    font-size: 18px;
+  content: 'Ranking';
+  font-weight: 600;
+  font-size: 18px;
 }
 
 footer a img {
-    height: 24px;
-    transition: all 0.3s ease-in-out;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
 }
 
 main,
@@ -128,210 +128,208 @@ select,
 .player-indicator,
 .ranking a,
 .reset a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #a1,
 #a2,
 #a3 {
-    border-top: none;
+  border-top: none;
 }
 
 #a3,
 #b3,
 #c3 {
-    border-right: none;
+  border-right: none;
 }
 
 #a1,
 #b1,
 #c1 {
-    border-left: none;
+  border-left: none;
 }
 
 #c1,
 #c2,
 #c3 {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 #win-modal .modal {
-    width: 380px;
-    gap: 24px;
-    background: #FEFBFB;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 40px;
-    position: absolute;
+  width: 380px;
+  gap: 24px;
+  background: #fefbfb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 40px;
+  position: absolute;
 }
 
 #win-modal h2,
 #ranking-modal h2 {
-    font-size: 36px;
-    line-height: 44px;
-    text-align: center;
-    color: #333333;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: #333333;
 }
 
 #win-modal p {
-    font-size: 16px;
-    line-height: 26px;
-    text-align: center;
-    color: #737380;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #737380;
 }
 
 #win-modal .button-group {
-    gap: 8px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  gap: 8px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 #win-modal button {
-    padding: 13px 0;
-    background: #DBDCDD;
-    border-radius: 8px;
-    margin: 0px 8px;
-    outline: none;
-    border: none;
-    flex: 1;
-    cursor: pointer;
-    transition: filter 0.3s ease-in-out;
+  padding: 13px 0;
+  background: #dbdcdd;
+  border-radius: 8px;
+  margin: 0px 8px;
+  outline: none;
+  border: none;
+  flex: 1;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
 }
 
 #win-modal .btn-play {
-    background: #63CEE8;
-    color: #FEFEFE;
+  background: #63cee8;
+  color: #fefefe;
 }
 
 #win-modal button:hover {
-    filter: brightness(95%);
+  filter: brightness(95%);
 }
 
 #win-modal,
 #ranking-modal {
-    width: 100%;
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }
 
 .bg {
-    width: 100%;
-    height: 100vh;
-    background-color: #000A;
+  width: 100%;
+  height: 100vh;
+  background-color: #000a;
 }
 
 #ranking-modal .modal {
-    width: 380px;
-    gap: 24px;
-    background: #FEFBFB;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 40px;
-    position: absolute;
+  width: 380px;
+  gap: 24px;
+  background: #fefbfb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 40px;
+  position: absolute;
 }
 
 #ranking-modal table {
-    border: 1px solid #C4C4C4;
-    border-spacing: 0;
-    width: 100%;
-    border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 8px;
 }
 
 #ranking-modal table tr {
-    border: 1px solid #C4C4C4;
-    display: flex;
-    padding: 0 16px;
-    height: 50px;
+  border: 1px solid #c4c4c4;
+  display: flex;
+  padding: 0 16px;
+  height: 50px;
 }
 
 #ranking-modal table tr * {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #ranking-modal table tr:first-child {
-    height: 36px;
-    border-radius: 6px 6px 0 0;
+  height: 36px;
+  border-radius: 6px 6px 0 0;
 }
 
 #ranking-modal table tr:last-child {
-    height: 36px;
-    border-radius: 0 0 6px 6px;
+  height: 36px;
+  border-radius: 0 0 6px 6px;
 }
 
 #ranking-modal table tr:first-child th:first-child {
-    width: 46px;
+  width: 46px;
 }
 
 #ranking-modal table tr td {
-    flex: 8;
-    font-weight: 500;
-    font-size: 20px;
-    color: #333333;
+  flex: 8;
+  font-weight: 500;
+  font-size: 20px;
+  color: #333333;
 }
 
 #ranking-modal table tr td:first-child {
-    font-weight: 300;
-    font-size: 14px;
-    color: #C4C4C4;
+  font-weight: 300;
+  font-size: 14px;
+  color: #c4c4c4;
 }
 
 #ranking-modal table tr th {
-    font-weight: bold;
-    font-size: 16px;
-    color: #333333;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333333;
 }
 
 #ranking-modal table tr td:first-child,
 #ranking-modal table tr td:last-child {
-    max-width: 50px;
+  max-width: 50px;
 }
 
-
 #ranking-modal table tr th:nth-child(2),
-#ranking-modal table tr th:last-child  {
-    flex: 1;
+#ranking-modal table tr th:last-child {
+  flex: 1;
 }
 
 #ranking-modal table tr td:last-child,
 #ranking-modal table tr th:last-child {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 #ranking-modal table tr td:first-child,
 #ranking-modal table tr th:nth-child(2) {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 @media (max-width: 768px) {
+  footer .indicators {
+    gap: 24px;
+  }
 
-    footer .indicators {
-        gap: 24px;
-    }
-
-    footer a p {
-        display: none;
-    }
+  footer a p {
+    display: none;
+  }
 }
 
 @media (max-width: 574px) {
-    footer .indicators {
-        gap: 16px;
-    }
+  footer .indicators {
+    gap: 16px;
+  }
 
-    footer a img {
-        display: none;
-    }
+  footer a img {
+    display: none;
+  }
 }

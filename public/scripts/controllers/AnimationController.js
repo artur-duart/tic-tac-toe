@@ -1,6 +1,6 @@
 const animateCSS = (element, animation) => {
-    const prefix = 'animate__';
-    const node = document.querySelector(element);
+  const prefix = 'animate__';
+  const node = document.querySelector(element);
 
-    node.classList.add(`${prefix}animated`, `${prefix}${animation}`);
+  node.classList.add(`${prefix}animated`, `${prefix}${animation}`);
 };
