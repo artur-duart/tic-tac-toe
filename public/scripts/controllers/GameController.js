@@ -75,10 +75,14 @@ const toggleLoadListeners = () => {
   const rankingButton = document.querySelector('.ranking');
   const modals = document.querySelectorAll('.modal-container');
 
-  resetButton.addEventListener('click', () => {
-    if (getAvailableMoves(gameBoard).length !== 9) start();
-  });
+  resetButton.addEventListener('click', () => getAvailableMoves(gameBoard).length !== 9 && start());
   rankingButton.addEventListener('click', toggleRankingModal);
+
+  difficultySelector.addEventListener('change', () => {
+    gameMode = difficultySelector.options[difficultySelector.selectedIndex].value;
+    start();
+  });
+  
   modals.forEach(modal => {
     const closeModal = () => (modal.style.display = 'none');
     modal.querySelector('.bg').addEventListener('click', closeModal);

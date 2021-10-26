@@ -26,9 +26,4 @@ let winPossibilities = [
   ];
 
 start();
-difficultySelector.addEventListener('change', () => {
-  gameMode = difficultySelector.options[difficultySelector.selectedIndex].value;
-  start();
-});
-
 toggleLoadListeners();
