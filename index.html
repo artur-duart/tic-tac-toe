@@ -4,14 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./public/styles/global.css" />
+    <link rel="stylesheet" href="./styles.css" />
 
     <script src="public/scripts/controllers/DatabaseController.js" defer></script>
     <script src="public/scripts/controllers/AnimationController.js" defer></script>
-    <script src="public/scripts/controllers/GameController.js" defer></script>
-    <script src="public/scripts/controllers/ComputerController.js" defer></script>
-    <script src="public/scripts/controllers/PlayerController.js" defer></script>
-    <script src="public/scripts/main.js" defer></script>
+    <script src="public/scripts/global.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   </head>
   <body>
@@ -20,26 +18,19 @@
         <h1>Tic Tac Toe</h1>
       </header>
       <main>
-        <div class="board"></div>
+        <p>Escolha o modo de jogo no qual você deseja jogar</p>
+        <div class="modes">
+          <button onclick="location.href='/game';">
+            <img src="./public/images/computer.svg" alt="Icone de computador" />
+            Computador
+          </button>
+          <button onclick="location.href='/name';">
+            <img src="./public/images/game-controller.svg" alt="Icone de Controle de videogame" />
+            Local
+          </button>
+        </div>
       </main>
       <footer>
-        <div class="reset">
-          <a href="#">
-            <img src="./public/images/reset.svg" alt="Representação de troféu" />
-            <p>Reiniciar</p>
-          </a>
-        </div>
-        <div class="indicators">
-          <select class="difficulty">
-            <option>Fácil</option>
-            <option>Médio</option>
-            <option>Difícil</option>
-            <option>Jogador X Jogador</option>
-          </select>
-          <div class="player-indicator">
-            <p>Jogador 1</p>
-          </div>
-        </div>
         <div class="ranking">
           <a href="#">
             <p>Ranking</p>
@@ -48,20 +39,6 @@
         </div>
       </footer>
     </div>
-
-    <section id="win-modal" class="modal-container">
-      <div class="modal">
-        <img src="/public/images/win-trophy.svg" alt="" />
-        <h2></h2>
-        <p>Vocês desejam jogar novamente?</p>
-
-        <div class="button-group">
-          <button class="btn-cancel">Não</button>
-          <button class="btn-play">Sim, jogar</button>
-        </div>
-      </div>
-      <div class="bg"></div>
-    </section>
 
     <section id="ranking-modal" class="modal-container">
       <div class="modal">

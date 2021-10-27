@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  height: 100vh;
+  max-width: 1100px;
+  padding: 80px 0;
+  margin: 0 auto;
+
+  background: #41bbd9;
+}
+
+.game-container {
+  padding: 0;
+}
+
+header h1 {
+  color: white;
+  font-size: 48px;
+  text-align: center;
+}
+
+main {
+  height: 420px;
+  max-width: 80vw;
+  max-height: 80vw;
+
+  flex-direction: column;
+  gap: 32px;
+}
+
+main p {
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  max-width: 25ch;
+  color: #FEFBFB;
+}
+
+main .modes {
+  gap: 36px;
+}
+
+main .modes button {
+  width: 200px;
+  height: 200px;
+  flex-direction: column;
+  gap: 12px;
+
+  color: #FEFBFB;
+  background: #63CEE8;
+  border: none;
+  border-radius: 12px;
+  border: 3px solid #63CEE8;
+
+  font-weight: 500;
+  font-size: 22px;
+
+  cursor: pointer;
+
+  transition: transform .4s ease-in-out, border .4s ease-in-out;
+}
+
+main .modes button img {
+  transition: transform .3s ease-in-out;
+}
+
+main .modes button:hover {
+  transform: scale(1.1);
+  border: 3px solid #006E90;
+}
+
+main .modes button:hover img {
+  transform: scale(1.25) rotate(-10deg);
+}
+
+footer {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 40px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fefbfb;
+  gap: 8px;
+}
+
+footer a:hover img {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+footer a p {
+  content: 'Ranking';
+  font-weight: 600;
+  font-size: 18px;
+}
+
+footer a img {
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+main,
+.ranking a,
+main .modes,
+main button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,158 @@
+header h1 {
+  color: white;
+  font-size: 48px;
+  text-align: center;
+}
+
+main {
+  width: 420px;
+  height: 420px;
+  max-width: 80vw;
+  max-height: 80vw;
+}
+
+.board {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.board .square {
+  border: 4px solid #006e90;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+  font-size: 78px;
+  font-weight: bold;
+  line-height: 0;
+}
+
+.board .square.X {
+  color: #006e90;
+}
+
+.board .square:hover {
+  background: #6bcae2;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 40px;
+}
+
+footer .indicators {
+  display: flex;
+  gap: 32px;
+}
+
+footer .difficulty,
+footer .player-indicator {
+  width: 140px;
+  height: 48px;
+  padding: 0 32px;
+  background: #63cee8;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fefbfb;
+  text-align: center;
+  outline: none;
+}
+
+footer .difficulty {
+  text-align: left;
+  padding: 0 12px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fefbfb;
+  gap: 8px;
+}
+
+footer a:hover img {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+footer .reset a:hover img {
+  transform: scale(1) rotate(-180deg);
+}
+
+footer a p {
+  content: 'Ranking';
+  font-weight: 600;
+  font-size: 18px;
+}
+
+footer a img {
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+main,
+select,
+.square,
+.player-indicator,
+.ranking a,
+.reset a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#a1,
+#a2,
+#a3 {
+  border-top: none;
+}
+
+#a3,
+#b3,
+#c3 {
+  border-right: none;
+}
+
+#a1,
+#b1,
+#c1 {
+  border-left: none;
+}
+
+#c1,
+#c2,
+#c3 {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  footer .indicators {
+    gap: 24px;
+  }
+
+  footer a p {
+    display: none;
+  }
+}
+
+@media (max-width: 574px) {
+  footer {
+    padding: 0 10px;
+    flex-direction: column;
+  }
+
+  footer .indicators {
+    gap: 16px;
+    margin: 0 auto;
+  }
+
+  footer > .reset {
+    display: none;
+  }
+
+}

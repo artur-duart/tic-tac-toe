@@ -1,8 +1,14 @@
 const reset = () => {
   gameBoard = {
-    a1: '', a2: '', a3: '',
-    b1: '', b2: '', b3: '',
-    c1: '', c2: '', c3: ''
+    a1: '',
+    a2: '',
+    a3: '',
+    b1: '',
+    b2: '',
+    b3: '',
+    c1: '',
+    c2: '',
+    c3: '',
   };
   document.querySelector('.board').innerHTML = '';
 };
@@ -30,72 +36,31 @@ const start = () => {
 };
 
 const checkWin = (board, player) => {
-  for (let pos in winPossibilities) {
-    let pArray = winPossibilities[pos].split(',');
-    let hasWon = pArray.every(option => board[option] === player);
+  for (var pos in winPossibilities) {
+    var pArray = winPossibilities[pos].split(',');
+    var hasWon = pArray.every(option => board[option] === player);
     if (hasWon) return true;
   }
   return false;
 };
 
 const gameBoardIsFull = board => {
-  let isFull = true;
+  var isFull = true;
   Object.values(board).forEach(value => {
     if (value == '') isFull = false;
   });
   return isFull;
 };
 
-const checkGame = async (board) => {
+const checkGame = async board => {
   if (checkWin(board, 'X') || checkWin(board, 'O')) {
-    let winner = currentPlayer == 'Sua vez' ? 'Você' : 'O ' + currentPlayer;
+    var winner = currentPlayer == 'Sua vez' ? 'Você' : 'O ' + currentPlayer;
     toggleWinModal(`${winner} venceu!`);
     isPlaying = false;
   } else if (gameBoardIsFull(board)) {
     toggleWinModal('Empate!');
     isPlaying = false;
   }
-};
-
-const toggleWinModal = message => {
-  let winModal = document.getElementById('win-modal');
-  winModal.querySelector('h2').textContent = message;
-  winModal.style.display = 'flex';
-  animateCSS('#win-modal .modal', 'fadeInDown');
-};
-
-const toggleRankingModal = () => {
-  let rankingModal = document.getElementById('ranking-modal');
-  rankingModal.style.display = 'flex';
-  animateCSS('#ranking-modal .modal', 'fadeInDown');
-};
-
-const toggleLoadListeners = () => {
-  const resetButton = document.querySelector('.reset');
-  const rankingButton = document.querySelector('.ranking');
-  const modals = document.querySelectorAll('.modal-container');
-
-  resetButton.addEventListener('click', () => getAvailableMoves(gameBoard).length !== 9 && start());
-  rankingButton.addEventListener('click', toggleRankingModal);
-
-  difficultySelector.addEventListener('change', () => {
-    gameMode = difficultySelector.options[difficultySelector.selectedIndex].value;
-    start();
-  });
-  
-  modals.forEach(modal => {
-    const closeModal = () => (modal.style.display = 'none');
-    modal.querySelector('.bg').addEventListener('click', closeModal);
-
-    if (modal.id == 'win-modal') {
-      modal.querySelectorAll('button').forEach(button =>
-        button.addEventListener('click', e => {
-          if (e.target.className == 'btn-play') start();
-          closeModal();
-        })
-      );
-    }
-  });
 };
 
 const togglePlayer = async () => {
@@ -116,8 +81,8 @@ const sortPlayer = async () => {
   return players[Math.floor(Math.random() * players.length)];
 };
 
-const getAvailableMoves = (board) => {
-  let availableMoves = [];
+const getAvailableMoves = board => {
+  var availableMoves = [];
   Object.values(board).forEach((value, index) => {
     value == '' && availableMoves.push(index);
   });
@@ -128,39 +93,39 @@ const getFilledMiddles = () => {
   var middles = [1, 3, 5, 7];
   var availableMoves = getAvailableMoves(gameBoard);
 
-  var arr = []
+  var arr = [];
 
   middles.forEach(move => {
-    if(gameBoard[Object.keys(gameBoard)[move]] == 'O' && !availableMoves.includes(move)) arr.push(move);
+    if (gameBoard[Object.keys(gameBoard)[move]] == 'O' && !availableMoves.includes(move)) arr.push(move);
   });
 
   return arr;
-}
+};
 
 getAvailableCorners = () => {
   var corners = [0, 2, 6, 8];
   corners.forEach(move => !availableMoves.includes(move) && corners.splice(corners.indexOf(move), 1));
   return corners;
-}
+};
 
-const addMove = (move, player = "X") => {
+const addMove = (move, player = 'X') => {
   const square = document.getElementById(move);
   square.innerHTML = `<p class="animate__animated animate__rubberBand">${player}</p>`;
   square.classList.add(player);
 
   return togglePlayer();
-}
+};
 
-const checkCloseFor = (player) => {
+const checkCloseFor = player => {
   const adversary = player == 'X' ? 'O' : 'X';
   var bestMove = '';
-  for (let pos in winPossibilities) {
-    let pArray = winPossibilities[pos].split(',');
-    let score = pArray.filter(option => gameBoard[option] !== adversary);
+  for (var pos in winPossibilities) {
+    var pArray = winPossibilities[pos].split(',');
+    var score = pArray.filter(option => gameBoard[option] !== adversary);
     if (!score.filter(option => gameBoard[option] == player).length >= 1 && score.length == 1) {
       bestMove = score[0];
       break;
     }
   }
   return bestMove;
-}
+};
