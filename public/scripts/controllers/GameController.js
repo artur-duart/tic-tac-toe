@@ -102,7 +102,9 @@ const getFilledMiddles = () => {
   return arr;
 };
 
-getAvailableCorners = () => {
+const getAvailableCorners = () => {
+  var availableMoves = getAvailableMoves(gameBoard);
+
   var corners = [0, 2, 6, 8];
   corners.forEach(move => !availableMoves.includes(move) && corners.splice(corners.indexOf(move), 1));
   return corners;
