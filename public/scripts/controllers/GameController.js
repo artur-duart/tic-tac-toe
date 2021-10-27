@@ -124,6 +124,25 @@ const getAvailableMoves = (board) => {
   return availableMoves;
 };
 
+const getFilledMiddles = () => {
+  var middles = [1, 3, 5, 7];
+  var availableMoves = getAvailableMoves(gameBoard);
+
+  var arr = []
+
+  middles.forEach(move => {
+    if(gameBoard[Object.keys(gameBoard)[move]] == 'O' && !availableMoves.includes(move)) arr.push(move);
+  });
+
+  return arr;
+}
+
+getAvailableCorners = () => {
+  var corners = [0, 2, 6, 8];
+  corners.forEach(move => !availableMoves.includes(move) && corners.splice(corners.indexOf(move), 1));
+  return corners;
+}
+
 const addMove = (move, player = "X") => {
   const square = document.getElementById(move);
   square.innerHTML = `<p class="animate__animated animate__rubberBand">${player}</p>`;
