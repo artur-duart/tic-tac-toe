@@ -17,6 +17,18 @@ body {
   position: relative;
 }
 
+header h1 {
+  color: white;
+  font-size: 48px;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fefbfb;
+  gap: 8px;
+}
+
 .game-container {
   height: 100%;
   width: 100%;
