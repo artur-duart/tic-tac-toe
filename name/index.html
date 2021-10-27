@@ -10,33 +10,39 @@
   </head>
 
   <body>
-    <header>
-      <h1>Tic Tac Toe</h1>
-    </header>
-
-    <main>
-      <p>Insira o nome dos jogadores:</p>
-
-      <div class="player1">
-        <label for="jogador1">Jogador 1</label>
-        <input id="jogador1" type="text" />
-      </div>
-
-      <div class="player2">
-        <label for="jogador2">Jogador 2</label>
-        <input id="jogador2" type="text" />
-      </div>
-    </main>
-
-    <footer>
-      <button id="prosseguir">Prosseguir <img src="../public/images/right-arrow.svg" /></button>
-
-      <div class="ranking">
-        <a href="#">
-          <p>Ranking</p>
-          <img src="../public/images/trophy.svg" alt="Representação de troféu" />
-        </a>
-      </div>
-    </footer>
+    <form method="GET" action='../game/'>
+      <input name="gamemode" type="hidden" value="pvp" />
+      <header>
+        <h1>Tic Tac Toe</h1>
+      </header>
+  
+      <main>
+        <p>Insira o nome dos jogadores:</p>
+  
+        <div class="player1">
+          <label for="jogador1">Jogador 1</label>
+          <input name="jogador1" id="jogador1" type="text" required />
+        </div>
+  
+        <div class="player2">
+          <label for="jogador2">Jogador 2</label>
+          <input name="jogador2" id="jogador2" type="text" required />
+        </div>
+      </main>
+  
+      <footer>
+        <button id="prosseguir">
+          Prosseguir
+          <img src="../public/images/right-arrow.svg" />
+        </button>
+  
+        <div class="ranking">
+          <a href="#">
+            <p>Ranking</p>
+            <img src="../public/images/trophy.svg" alt="Representação de troféu" />
+          </a>
+        </div>
+      </footer>
+    </form>
   </body>
 </html>
