@@ -102,6 +102,40 @@ const getFilledMiddles = () => {
   return arr;
 };
 
+const getL = () => {
+  var LCombinations = [
+    {
+      combination: [0, 7],
+      bestMoves: [3, 6]
+    }, {
+      combination: [0, 5],
+      bestMoves: [1, 2]
+    }, {
+      combination: [2, 7],
+      bestMoves: [5, 8]
+    }, {
+      combination: [2, 3],
+      bestMoves: [0, 1]
+    }, {
+      combination: [8, 1],
+      bestMoves: [2, 5]
+    }, {
+      combination: [8, 3],
+      bestMoves: [6, 7]
+    }, {
+      combination: [6, 1],
+      bestMoves: [3, 0]
+    }, {
+      combination: [6, 5],
+      bestMoves: [7, 8]
+    },
+  ];
+
+  LCombinations.forEach(cb => {
+    if (gameBoard[Object.keys(gameBoard)[cb.combination[0]]] == 'O' && gameBoard[Object.keys(gameBoard)[cb.combination[1]]] == 'O' ) return cb;
+  });
+}
+
 const getAvailableCorners = () => {
   var availableMoves = getAvailableMoves(gameBoard);
 
