@@ -54,10 +54,29 @@ const gameBoardIsFull = board => {
 
 const checkGame = async board => {
   if (checkWin(board, 'X') || checkWin(board, 'O')) {
-    var winner = currentPlayer == 'Sua vez' ? 'Você' : currentPlayer;
+    const database = new Database();
+
+    if(currentPlayer == 'Sua vez') {
+      winner = 'Você'
+    } else {
+      winner = currentPlayer;
+
+      if(currentPlayer == getCurrentPlayer("jogador1")) {
+        database.update(getCurrentPlayer("jogador1"), "wins")
+        database.update(getCurrentPlayer("jogador2"), "losses")
+      } else {
+        database.update(getCurrentPlayer("jogador1"), "losses")
+        database.update(getCurrentPlayer("jogador2"), "wins")
+      }
+    }
     toggleWinModal(`${winner} venceu!`);
     isPlaying = false;
   } else if (gameBoardIsFull(board)) {
+    const database = new Database();
+
+    database.update(getCurrentPlayer("jogador1"), "draws")
+    database.update(getCurrentPlayer("jogador2"), "draws")
+
     toggleWinModal('Empate!');
     isPlaying = false;
   }

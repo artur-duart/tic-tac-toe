@@ -3,18 +3,8 @@ class Database {
       if(!this.exists(name)) {
         localStorage.setItem(name, JSON.stringify({
           "name": name,
-          "wins": {
-            "pvp": 0,
-            "easy": 0,
-            "medium": 0,
-            "hard": 0
-          },
-          "losses": {
-            "pvp": 0,
-            "easy": 0,
-            "medium": 0,
-            "hard": 0
-          },
+          "wins": 0,
+          "losses": 0,
           "draws": 0
         }));
       }
@@ -29,11 +19,11 @@ class Database {
       return { ...localStorage };
     }
 
-    update(name, type, mode = '') {
+    update(name, type) {
+      if(!this.exists(name)) this.create(name)
+      
       const data = this.get(name);
-
-      if(mode !== '') data[type][mode] += 1;
-      else data[type] += 1;
+      data[type] += 1;
 
       localStorage.setItem(name, JSON.stringify(data));
     }

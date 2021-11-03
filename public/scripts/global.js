@@ -1,4 +1,21 @@
-const url = window.location.href.split('/').slice(-1)[0].replace("?", "").split("&");
+const url = window.location.href.split('/').slice(-1)[0].replace('?', '').replace('#', '').split('&');
+
+var rankingModal = document.querySelector('#ranking-modal .modal table');
+const database = new Database();
+const allUsers = Object.values(database.getAll());
+
+for(var pos in allUsers) {
+  const user = JSON.parse(Object.values(allUsers)[pos]);
+  const tr = document.createElement('tr')
+  tr.innerHTML = `
+    <td>${Number(pos)+1}°</td>
+    <td>${user.name}</td>
+    <td>${user.wins}</td>
+  `
+  console.log(rankingModal)
+  rankingModal.appendChild(tr)
+}
+// rankingModal.appendChild()
 
 const toggleWinModal = message => {
   var winModal = document.getElementById('win-modal');
