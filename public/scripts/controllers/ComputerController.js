@@ -21,7 +21,7 @@ const moveRandom = () => {
   var move = Math.floor(Math.random() * availableMoves.length);
 
   gameBoard[Object.keys(gameBoard)[availableMoves[move]]] = 'X';
-  addMove(Object.keys(gameBoard)[availableMoves[move]]);
+  addMove(Object.keys(gameBoard)[availableMoves[move]], 'X');
 };
 
 const moveMedium = () => {
@@ -29,7 +29,7 @@ const moveMedium = () => {
 
   if (bestMove !== '') {
     gameBoard[bestMove] = 'X';
-    addMove(bestMove);
+    addMove(bestMove, 'X');
   } else return moveRandom();
 };
 
@@ -58,7 +58,7 @@ const moveHard = async () => {
 
   if (bestMove !== '' && bestMove !== undefined) {
     gameBoard[bestMove] = 'X';
-    return addMove(bestMove);
+    return addMove(bestMove, 'X');
   } else if (closeMove !== '') return moveMedium();
   else return moveRandom();
 };

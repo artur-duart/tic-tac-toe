@@ -1,3 +1,5 @@
+const url = window.location.href.split('/').slice(-1)[0].replace("?", "").split("&");
+
 const toggleWinModal = message => {
   var winModal = document.getElementById('win-modal');
   winModal.querySelector('h2').textContent = message;

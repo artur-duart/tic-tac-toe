@@ -54,7 +54,7 @@ const gameBoardIsFull = board => {
 
 const checkGame = async board => {
   if (checkWin(board, 'X') || checkWin(board, 'O')) {
-    var winner = currentPlayer == 'Sua vez' ? 'Você' : 'O ' + currentPlayer;
+    var winner = currentPlayer == 'Sua vez' ? 'Você' : currentPlayer;
     toggleWinModal(`${winner} venceu!`);
     isPlaying = false;
   } else if (gameBoardIsFull(board)) {
@@ -63,12 +63,18 @@ const checkGame = async board => {
   }
 };
 
+const getCurrentPlayer = (player) => {
+  if(gameMode == 'Jogador X Jogador') {
+    return url.filter(post => post.includes(player))[0].split("=")[1].split("+")[0]
+  } else return currentPlayer == 'Computador' ? 'Sua vez' : 'Computador'
+};
+
 const togglePlayer = async () => {
   await checkGame(gameBoard);
   if (isPlaying == true) {
-    if (gameMode == 'Jogador X Jogador') currentPlayer = currentPlayer == 'Jogador 1' ? 'Jogador 2' : 'Jogador 1';
-    else currentPlayer = currentPlayer == 'Sua vez' ? 'Computador' : 'Sua vez';
-
+    if (gameMode !== 'Jogador X Jogador') currentPlayer = currentPlayer == 'Computador' ? 'Sua vez' : 'Computador';
+    else currentPlayer = currentPlayer == getCurrentPlayer("jogador1") ? getCurrentPlayer('jogador2') : getCurrentPlayer("jogador1");    
+    
     changeIndicator();
     if (currentPlayer == 'Computador') computerPlay();
   }
@@ -77,7 +83,7 @@ const togglePlayer = async () => {
 const changeIndicator = () => (document.querySelector('.player-indicator').innerHTML = `<p>${currentPlayer}</p>`);
 
 const sortPlayer = async () => {
-  const players = gameMode == 'Jogador X Jogador' ? ['Jogador 1', 'Jogador 2'] : ['Computador', 'Sua vez'];
+  const players = gameMode == 'Jogador X Jogador' ? [getCurrentPlayer("jogador1"), getCurrentPlayer('jogador2')] : ['Computador', 'Sua vez'];
   return players[Math.floor(Math.random() * players.length)];
 };
 
@@ -147,7 +153,7 @@ const getAvailableCorners = () => {
   return corners;
 };
 
-const addMove = (move, player = 'X') => {
+const addMove = (move, player) => {
   const square = document.getElementById(move);
   square.innerHTML = `<p class="animate__animated animate__rubberBand">${player}</p>`;
   square.classList.add(player);
