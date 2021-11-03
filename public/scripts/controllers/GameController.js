@@ -22,6 +22,7 @@ const render = () => {
     squareDiv.addEventListener('click', addPlayerMove);
     boardDiv.appendChild(squareDiv);
   }
+  updateRanking();
 };
 
 const start = () => {

@@ -1,21 +1,24 @@
 const url = window.location.href.split('/').slice(-1)[0].replace('?', '').replace('#', '').split('&');
 
-var rankingModal = document.querySelector('#ranking-modal .modal table');
-const database = new Database();
-const allUsers = Object.values(database.getAll());
 
-for(var pos in allUsers) {
-  const user = JSON.parse(Object.values(allUsers)[pos]);
-  const tr = document.createElement('tr')
-  tr.innerHTML = `
-    <td>${Number(pos)+1}°</td>
-    <td>${user.name}</td>
-    <td>${user.wins}</td>
-  `
-  console.log(rankingModal)
-  rankingModal.appendChild(tr)
+const updateRanking = () => {
+  var rankingModal = document.querySelector('#ranking-modal .modal table');
+  rankingModal.innerHTML = '';
+  const database = new Database();
+  var allUsers = Object.values(database.getAll());
+  allUsers = allUsers.sort((a, b) => JSON.parse(b).wins - JSON.parse(a).wins);
+  
+  for(var pos in allUsers) {
+    const user = JSON.parse(allUsers[pos]);
+    const tr = document.createElement('tr')
+    tr.innerHTML = `
+      <td>${Number(pos)+1}°</td>
+      <td>${user.name}</td>
+      <td>${user.wins}</td>
+    `
+    rankingModal.appendChild(tr)
+  }
 }
-// rankingModal.appendChild()
 
 const toggleWinModal = message => {
   var winModal = document.getElementById('win-modal');
