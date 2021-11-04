@@ -42,158 +42,162 @@ footer a {
 }
 
 #win-modal .modal {
-    width: 380px;
-    gap: 24px;
-    background: #fefbfb;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 40px;
-    position: absolute;
-  }
-  
-  #win-modal h2,
-  #ranking-modal h2 {
-    font-size: 36px;
-    line-height: 44px;
-    text-align: center;
-    color: #333333;
-  }
-  
-  #win-modal p {
-    font-size: 16px;
-    line-height: 26px;
-    text-align: center;
-    color: #737380;
-  }
-  
-  #win-modal .button-group {
-    gap: 8px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  #win-modal button {
-    padding: 13px 0;
-    background: #dbdcdd;
-    border-radius: 8px;
-    margin: 0px 8px;
-    outline: none;
-    border: none;
-    flex: 1;
-    cursor: pointer;
-    transition: filter 0.3s ease-in-out;
-  }
-  
-  #win-modal .btn-play {
-    background: #63cee8;
-    color: #fefefe;
-  }
-  
-  #win-modal button:hover {
-    filter: brightness(95%);
-  }
-  
-  #win-modal,
-  #ranking-modal {
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-  }
-  
-  .bg {
-    width: 100%;
-    height: 100vh;
-    background-color: #000a;
-  }
-  
-  #ranking-modal .modal {
-    width: 380px;
-    gap: 24px;
-    background: #fefbfb;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 40px;
-    position: absolute;
-  }
-  
-  #ranking-modal table {
-    border: 1px solid #c4c4c4;
-    border-spacing: 0;
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  #ranking-modal table tr {
-    border: 1px solid #c4c4c4;
-    display: flex;
-    padding: 0 16px;
-    height: 50px;
-  }
-  
-  #ranking-modal table tr * {
-    display: flex;
-    align-items: center;
-  }
-  
-  #ranking-modal table tr:first-child {
-    height: 36px;
-    border-radius: 6px 6px 0 0;
-  }
-  
-  #ranking-modal table tr:last-child {
-    height: 36px;
-    border-radius: 0 0 6px 6px;
-  }
-  
-  #ranking-modal table tr:first-child th:first-child {
-    width: 46px;
-  }
-  
-  #ranking-modal table tr td {
-    flex: 8;
-    font-weight: 500;
-    font-size: 20px;
-    color: #333333;
-  }
-  
-  #ranking-modal table tr td:first-child {
-    font-weight: 300;
-    font-size: 14px;
-    color: #c4c4c4;
-  }
-  
-  #ranking-modal table tr th {
-    font-weight: bold;
-    font-size: 16px;
-    color: #333333;
-  }
-  
-  #ranking-modal table tr td:first-child,
-  #ranking-modal table tr td:last-child {
-    max-width: 50px;
-  }
-  
-  #ranking-modal table tr th:nth-child(2),
-  #ranking-modal table tr th:last-child {
-    flex: 1;
-  }
-  
-  #ranking-modal table tr td:last-child,
-  #ranking-modal table tr th:last-child {
-    justify-content: flex-end;
-  }
-  
-  #ranking-modal table tr td:first-child,
-  #ranking-modal table tr th:nth-child(2) {
-    justify-content: flex-start;
-  }
+  width: 380px;
+  gap: 24px;
+  background: #fefbfb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 40px;
+  position: absolute;
+}
+
+#win-modal h2,
+#ranking-modal h2 {
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: #333333;
+}
+
+#win-modal p {
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #737380;
+}
+
+#win-modal .button-group {
+  gap: 8px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#win-modal button {
+  padding: 13px 0;
+  background: #dbdcdd;
+  border-radius: 8px;
+  margin: 0px 8px;
+  outline: none;
+  border: none;
+  flex: 1;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+}
+
+#win-modal .btn-play {
+  background: #63cee8;
+  color: #fefefe;
+}
+
+#win-modal button:hover {
+  filter: brightness(95%);
+}
+
+#win-modal,
+#ranking-modal {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  background-color: #000a;
+}
+
+#ranking-modal .modal {
+  width: 380px;
+  gap: 24px;
+  background: #fefbfb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 40px;
+  position: absolute;
+}
+
+#ranking-modal table {
+  border: 1px solid #c4c4c4;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 8px;
+}
+
+#ranking-modal p {
+  padding: 24px 18px;
+}
+
+#ranking-modal table tr {
+  border: 1px solid #c4c4c4;
+  display: flex;
+  padding: 0 16px;
+  height: 50px;
+}
+
+#ranking-modal table tr * {
+  display: flex;
+  align-items: center;
+}
+
+#ranking-modal table tr:first-child {
+  height: 36px;
+  border-radius: 6px 6px 0 0;
+}
+
+#ranking-modal table tr:last-child {
+  height: 36px;
+  border-radius: 0 0 6px 6px;
+}
+
+#ranking-modal table tr:first-child th:first-child {
+  width: 46px;
+}
+
+#ranking-modal table tr td {
+  flex: 8;
+  font-weight: 500;
+  font-size: 20px;
+  color: #333333;
+}
+
+#ranking-modal table tr td:first-child {
+  font-weight: 300;
+  font-size: 14px;
+  color: #c4c4c4;
+}
+
+#ranking-modal table tr th {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333333;
+}
+
+#ranking-modal table tr td:first-child,
+#ranking-modal table tr td:last-child {
+  max-width: 50px;
+}
+
+#ranking-modal table tr th:nth-child(2),
+#ranking-modal table tr th:last-child {
+  flex: 1;
+}
+
+#ranking-modal table tr td:last-child,
+#ranking-modal table tr th:last-child {
+  justify-content: flex-end;
+}
+
+#ranking-modal table tr td:first-child,
+#ranking-modal table tr th:nth-child(2) {
+  justify-content: flex-start;
+}

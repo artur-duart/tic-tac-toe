@@ -3,26 +3,33 @@ const url = decodeURI(window.location.href.split('/').slice(-1)[0].replace('?', 
 
 const updateRanking = () => {
   var rankingModal = document.querySelector('#ranking-modal .modal table');
-  rankingModal.innerHTML = `
+  const database = new Database();
+  var allUsers = Object.values(database.getAll());
+  allUsers = allUsers.sort((a, b) => JSON.parse(b).wins - JSON.parse(a).wins);
+  
+  if(allUsers.length > 0) {
+    rankingModal.innerHTML = `
     <tr>
       <th></th>
       <th>Jogador</th>
       <th>Vitórias</th>
     </tr>
   `;
-  const database = new Database();
-  var allUsers = Object.values(database.getAll());
-  allUsers = allUsers.sort((a, b) => JSON.parse(b).wins - JSON.parse(a).wins);
   
-  for(var pos in allUsers) {
-    const user = JSON.parse(allUsers[pos]);
-    const tr = document.createElement('tr')
-    tr.innerHTML = `
-      <td>${Number(pos)+1}°</td>
-      <td>${user.name}</td>
-      <td>${user.wins}</td>
+    for(var pos in allUsers) {
+      const user = JSON.parse(allUsers[pos]);
+      const tr = document.createElement('tr')
+      tr.innerHTML = `
+        <td>${Number(pos)+1}°</td>
+        <td>${user.name}</td>
+        <td>${user.wins}</td>
+      `
+      rankingModal.appendChild(tr)
+    }
+  } else {
+    rankingModal.innerHTML = `
+      <p>Não há jogadores cadastrados</p>
     `
-    rankingModal.appendChild(tr)
   }
 }
 
