@@ -1,9 +1,15 @@
-const url = window.location.href.split('/').slice(-1)[0].replace('?', '').replace('#', '').split('&');
+const url = decodeURI(window.location.href.split('/').slice(-1)[0].replace('?', '').replace('#', '')).split('&');
 
 
 const updateRanking = () => {
   var rankingModal = document.querySelector('#ranking-modal .modal table');
-  rankingModal.innerHTML = '';
+  rankingModal.innerHTML = `
+    <tr>
+      <th></th>
+      <th>Jogador</th>
+      <th>Vitórias</th>
+    </tr>
+  `;
   const database = new Database();
   var allUsers = Object.values(database.getAll());
   allUsers = allUsers.sort((a, b) => JSON.parse(b).wins - JSON.parse(a).wins);
