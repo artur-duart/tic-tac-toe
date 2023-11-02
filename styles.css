@@ -119,3 +119,18 @@ main button {
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 480px) {
+  main .modes {
+    flex-direction: column;
+  }
+
+  main .modes button {
+    width: 150px;
+    height: 150px;
+  }
+
+  main .modes button img {
+    height: 40%;
+  }
+}
